@@ -1,6 +1,7 @@
 import useFetch from '../utils/useFetch'
 //EmployeeList just moved the map function to a sub component
 import EmployeeList from '../utils/EmployeeList'
+import EmployeeTable from '../utils/EmployeeTable'
 
 
 const Home = () => {
@@ -10,7 +11,8 @@ const Home = () => {
         <div className='home'>
         {isError && <div>Scotty we have a problem {isError}</div> }
         {isPending && <div>Data is Loading ...</div> }
-        {data && <EmployeeList employees={data} title={"List of Employees"}/>}  
+        {/* {data && <EmployeeList employees={data} title={"List of Employees"}/>}   */}
+        {data && <EmployeeTable employees={data} title={"List of Employees"}/>}
         </div> 
     );
     
