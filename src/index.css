@@ -37,8 +37,9 @@
   margin: 20px 0;
   border: 2px solid blueviolet;
 }
-.blog-preview:hover {
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+.employee-table tr, .employee-table td {
+  padding: 10px 16px;
+  border: 1px solid black;
 }
 .employee-preview h2 {
   font-size: 20px;
@@ -104,3 +105,16 @@
    border-radius: 8px;
    cursor: pointer;
  }
+
+
+ thead button.ascending::after {
+  content: '🔼';
+  display: inline-block;
+  margin-left: 1em;
+}
+
+thead button.descending::after {
+  content: '🔽';
+  display: inline-block;
+  margin-left: 1em;
+}

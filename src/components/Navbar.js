@@ -6,7 +6,6 @@ const Navbar = (props) => {
             <h1>The Employee Directory</h1>
             <div className = 'links' >
                 <Link to="/">Home</Link>
-                <Link to="/create" >New Blog</Link>
                 <a href="/test">Test</a>
             </div>
         </nav>
