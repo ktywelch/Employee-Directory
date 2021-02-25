@@ -6,32 +6,30 @@ const EmployeeTable = (props) => {
     
     const employees = props.employees.results;
     const [sortedField, setSortedField] = useState(null);
-    const [sortAscending, setSortAscending] = useState();
+    const [sortDirection, setSortDirection] = useState();
+    const [classBtnVal,setClassBtnval ] = useState({name: 'none', country: 'none', email: 'none'})
 
-    const requestSort = () => {};
+    let sortedEmployees=[...employees]
 
-    let sortedEmployees=[...employees];
     if (sortedField !== null) {
-        
+        console.log(classBtnVal);
     sortedEmployees.sort((a, b) => {
         // because our data is hirearchical need to adjuse field eval
         let p = `a.${sortedField} < b.${sortedField}`;
         let q = `a.${sortedField} > b.${sortedField}`;
-
         if (eval(p) ) {
-            return sortAscending === true ? -1: 1;
+            return sortDirection === 'ascending' ? -1: 1;
         }
         if (eval(q)) {
-            return sortAscending === true ? 1: -1;
+            return sortDirection === 'ascending' ? 1: -1;
         }
         return 0;
       });
     }
     
-
         return (
-  
-        <div className="container">    
+        <div className="container">
+
               <table className='employee-table'>
                   <thead>
                   <tr>     
@@ -39,22 +37,28 @@ const EmployeeTable = (props) => {
                       <th>
                         <button type="button" onClick={() => {
                             setSortedField ('name.last');
-                            sortAscending === true ? setSortAscending(false): setSortAscending(true);}}
-                            className={ 'name'+sortAscending}>
+                            sortDirection === 'ascending' ? setSortDirection('descending'): setSortDirection('ascending');
+                             setClassBtnval({name: sortDirection, country: 'none', email: 'none'})
+                             }}
+                            className={classBtnVal.name}>
                          Name
                          </button>
                       </th>
                       <th><button type="button" onClick={() => {
                           setSortedField ('location.country')
-                          sortAscending === true ? setSortAscending(false): setSortAscending(true) }}
-                          className={ 'country'+sortAscending}>
+                          sortDirection === 'ascending' ? setSortDirection('descending'): setSortDirection('ascending') 
+                          setClassBtnval({name: 'none', country: sortDirection, email: 'none'})
+                          }}
+                          className={ classBtnVal.country}>
                          Country
                          </button>
                      </th>
                       <th><button type="button" onClick={() => {
                           setSortedField ('email');
-                          sortAscending === true ? setSortAscending(false): setSortAscending(true);}}
-                          className={'email'+sortAscending}>
+                          sortDirection === 'ascending' ? setSortDirection('descending'): setSortDirection('ascending')
+                          setClassBtnval({name: 'none', country: 'none', email: sortDirection})
+                          }}
+                          className={classBtnVal.email}>
                          Email
                          </button>
                      </th>

@@ -118,3 +118,10 @@ thead button.descending::after {
   display: inline-block;
   margin-left: 1em;
 }
+
+
+thead button::after {
+  content: '🐶';
+  display: inline-block;
+  margin-left: 1em;
+}
