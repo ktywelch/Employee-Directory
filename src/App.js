@@ -1,8 +1,8 @@
-import Navbar from './components/Navbar'
-import Home from './components/pages/Home'
-import About from './components/pages/About'
+import Navbar from './components/Navbar.js'
+import Home from './components/pages/Home.js'
+import About from './components/pages/About.js'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import NotFound from './components/pages/NotFound'
+import NotFound from './components/pages/NotFound.js'
 
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route> 
-          <Route exact path="/about">
+          <Route exact path="/About">
             <About />
           </Route>                
             <Route path="*">
