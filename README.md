@@ -1,6 +1,6 @@
 # Employee Directory
 
-The Employee Directory application is a front end react application that creates a list of users from an opesoruce API that represents employees. The user can search and filter the users,
+The Employee Directory application is a front end react application that creates a list of users from an opesoruce API that represents employees. The user can search and filter the users by name.
 
 [Employee Directory application can be found on github repository ](https://github.com/ktywelch/Employee-Directory.git)
 

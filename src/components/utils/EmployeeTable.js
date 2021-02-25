@@ -45,8 +45,8 @@ const EmployeeTable = (props) => {
 
         return (
         <div className="container">
-            <span>Filter Name: </span> 
-             <input type="text" placeholder="Filter Employee Name" onChange={ e => setSerachName(e.target.value)} />
+            <span>Filter by Name: </span> 
+             <input type="text" placeholder="Enter Filter Criteria" onChange={ e => setSerachName(e.target.value)} />
             
               <table className='employee-table pagination' data-pagecount="4">
                   <thead>
