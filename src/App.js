@@ -23,8 +23,11 @@ function App() {
           <Route exact path="/About">
             <About />
           </Route>                
-            <Route path="*">
+            <Route path="/index">
             <Home />
+          </Route>
+          <Route path="*">
+            <NotFound />
           </Route>
         </Switch>
       </div>
