@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from "react";
+import getDescendantProp from '../utils/getDescendantProp'
 
 const EmployeeTable = (props) => {    
     
@@ -28,13 +29,14 @@ const EmployeeTable = (props) => {
         console.log(classBtnVal);
     sortedEmployees.sort((a, b) => {
         // because our data is hirearchical need to adjuse field eval
-        let p = `a.${sortedField} < b.${sortedField}`;
-        let q = `a.${sortedField} > b.${sortedField}`;
-         if (eval(p) ) {
-          // if(a[sortedField] < b[sortedField] ) { 
+
+        console.log(sortedField)
+          console.log(getDescendantProp(a,sortedField));           
+    
+          if (getDescendantProp(a,sortedField) < getDescendantProp(b,sortedField)) { 
             return sortDirection === 'ascending' ? -1: 1;
         }
-         if (eval(q) ) {
+         if (getDescendantProp(a,sortedField) > getDescendantProp(b,sortedField) ) {
         //if (a[sortedField] > b[sortedField] ) {
             return sortDirection === 'ascending' ? 1: -1;
         }

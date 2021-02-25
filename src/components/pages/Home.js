@@ -1,5 +1,5 @@
 import useFetch from '../utils/useFetch'
-import EmployeeTable from '../utils/EmployeeTable'
+import EmployeeTable from './EmployeeTable'
 
 
 const Home = () => {
