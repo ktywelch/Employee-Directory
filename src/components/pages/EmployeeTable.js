@@ -3,12 +3,12 @@ import getDescendantProp from '../utils/getDescendantProp'
 
 const EmployeeTable = (props) => {    
     
-    //const employees = props.employees.results;
-    const [employees, setEmployees] = useState(props.employees.results);
+    const employees = props.employees.results;
+
     const [filteredEmployees, setFilteredEmployees] =  useState([])
     const [searchName, setSerachName] = useState('');
     const [sortedField, setSortedField] = useState(null);
-    const [sortDirection, setSortDirection] = useState();
+    const [sortDirection, setSortDirection] = useState('descending');
     const [classBtnVal,setClassBtnval ] = useState({name: 'none', country: 'none', email: 'none'})
 
 
@@ -26,21 +26,16 @@ const EmployeeTable = (props) => {
     let sortedEmployees=[...filteredEmployees]
 
     if (sortedField !== null) {
-        console.log(classBtnVal);
     sortedEmployees.sort((a, b) => {
-        // because our data is hirearchical need to adjuse field eval
-
-        console.log(sortedField)
-          console.log(getDescendantProp(a,sortedField));           
-    
-          if (getDescendantProp(a,sortedField) < getDescendantProp(b,sortedField)) { 
-            return sortDirection === 'ascending' ? -1: 1;
-        }
-         if (getDescendantProp(a,sortedField) > getDescendantProp(b,sortedField) ) {
-        //if (a[sortedField] > b[sortedField] ) {
-            return sortDirection === 'ascending' ? 1: -1;
-        }
-        return 0;
+        let s_order=1; 
+        sortDirection === 'ascending'?s_order=1:s_order=-1
+        // because our data is hirearchical need to helper function to convert the string into an opject of descending keys
+        let a_valField = getDescendantProp(a,sortedField);
+        let b_valField = getDescendantProp(b,sortedField);
+        //Making the sort function less calls these two lines replace the whole section
+         let val = 0; 
+         a_valField < b_valField ? val = -1 : val = 1;
+         return val * s_order;
       });
     }
     
